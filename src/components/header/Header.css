@@ -1,0 +1,17 @@
+.header {
+  display: inline-flex;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+}
+
+#light .header {
+  background: linear-gradient(rgb(125, 207, 221), rgb(154, 190, 219));
+  color: black;
+}
+
+#dark .header {
+  background: linear-gradient(rgb(0 64 97), rgb(0 0 0));
+  color: aliceblue;
+}

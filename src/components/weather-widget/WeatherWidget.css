@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Outfit&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Outfit';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#light {
+  background: linear-gradient(rgb(0 136 195), rgb(174 174 174));
+  color: aliceblue;
+}
+
+#dark {
+  background: linear-gradient(rgb(0 64 97), rgb(0 0 0));
+  color: aliceblue;
+}
+
+input {
+  padding: 0.7rem 0.5rem;
+  font-size: 0.7rem;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  color: aliceblue;
+}
+
+input:focus-visible {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+#light .weather-container {
+  background: linear-gradient(rgb(0 136 195), rgb(174 174 174));
+  color: aliceblue;
+}
+
+#dark .weather-container {
+  background: linear-gradient(rgb(0 64 97), rgb(0 0 0));
+  color: aliceblue;
+}
+
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  box-shadow: 0 2px 4px 0 #555;
+  border-radius: 5px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Outfit';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,7 @@
+.set-interval {
+  padding: 0.75rem;
+}
+
+.set-interval > input {
+  width: 90px;
+}

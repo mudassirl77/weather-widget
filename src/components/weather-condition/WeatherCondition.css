@@ -1,0 +1,9 @@
+.weather-condition {
+  margin: 20px auto;
+  text-transform: capitalize;
+  font-size: 24px;
+}
+
+.weather-condition > span {
+  font-size: 28px;
+}
