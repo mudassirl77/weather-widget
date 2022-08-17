@@ -7,16 +7,16 @@ import WeatherCondition from '../weather-condition/WeatherCondition';
 import WeatherInfoContainer from '../weather-info-container/WeatherInfoContainer';
 import { WEATHER_API_KEY, WEATHER_API_URL } from '../../api';
 
-type ThemContextType = {
+type ThemeContextType = {
   theme: string;
   toggleTheme: () => void;
 };
-export const ThemeContext = createContext<ThemContextType>(
-  {} as ThemContextType
+export const ThemeContext = createContext<ThemeContextType>(
+  {} as ThemeContextType
 );
 export const SearchContext = createContext({});
 export const RefreshIntervalContext = createContext({});
-export const DEFAULT_REFRESH_INTERVAL = 5000;
+export const DEFAULT_REFRESH_INTERVAL = 30000;
 
 function WeatherWidget() {
   const [theme, setTheme] = useState('light');
@@ -39,13 +39,11 @@ function WeatherWidget() {
   );
 
   useEffect(() => {
-    console.log('search:', search);
     fetchWeatherInfo();
   }, [search]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log('refreshInterval:', refreshInterval);
       fetchWeatherInfo();
     }, refreshInterval);
     return () => clearInterval(interval);
