@@ -1,6 +1,5 @@
 import WeatherWidget from './components/weather-widget/WeatherWidget';
 
-
 export function App() {
   return (
     <div>
