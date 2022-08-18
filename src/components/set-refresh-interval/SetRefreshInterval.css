@@ -4,4 +4,24 @@
 
 .set-interval > input {
   width: 90px;
+  font-family: 'Outfit';
+}
+#dark .set-interval > input {
+  color: white;
+  font-family: 'Outfit';
+}
+
+#light .set-interval > input {
+  color: hsl(0, 0%, 20%);
+  font-family: 'Outfit';
+}
+
+#dark .set-interval > input::placeholder {
+  color: white;
+  font-family: 'Outfit';
+}
+
+#light .set-interval > input::placeholder {
+  color: hsl(0, 0%, 20%);
+  font-family: 'Outfit';
 }
