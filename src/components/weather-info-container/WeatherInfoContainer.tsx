@@ -1,12 +1,13 @@
 import './WeatherInfoContainer.css';
 import WeatherInfo from '../weather-info/WeatherInfo';
+import { WeatherDetails } from '../weather-widget/weather-widget.interface';
 
-type WeatherInfoContainer = {
-  weatherInfo: any;
-};
+interface WeatherInfoContainer {
+  weatherDetails: WeatherDetails;
+}
 
-function WeatherInfoContainer({ weatherInfo }: WeatherInfoContainer) {
-  const isDay = weatherInfo?.weather[0].icon?.includes('d');
+function WeatherInfoContainer({ weatherDetails }: WeatherInfoContainer) {
+  const isDay = weatherDetails?.weather[0].icon?.includes('d');
   const getTime = (timeStamp: number) => {
     return `${new Date(timeStamp * 1000).getHours()} : ${new Date(
       timeStamp * 1000
@@ -16,16 +17,19 @@ function WeatherInfoContainer({ weatherInfo }: WeatherInfoContainer) {
     <div className="weather-info-container">
       <WeatherInfo
         label={isDay ? 'sunset' : 'sunrise'}
-        value={`${getTime(weatherInfo?.sys[isDay ? 'sunset' : 'sunrise'])}`}
+        value={`${getTime(weatherDetails?.sys[isDay ? 'sunset' : 'sunrise'])}`}
       ></WeatherInfo>
-      <WeatherInfo label="wind" value={weatherInfo?.wind?.speed}></WeatherInfo>
+      <WeatherInfo
+        label="wind"
+        value={weatherDetails?.wind?.speed}
+      ></WeatherInfo>
       <WeatherInfo
         label="humidity"
-        value={weatherInfo?.main?.humidity}
+        value={weatherDetails?.main?.humidity}
       ></WeatherInfo>
       <WeatherInfo
         label="pressure"
-        value={weatherInfo?.main?.pressure}
+        value={weatherDetails?.main?.pressure}
       ></WeatherInfo>
     </div>
   );

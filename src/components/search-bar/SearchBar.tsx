@@ -1,17 +1,24 @@
 import { useContext, useState } from 'react';
 import { AsyncPaginate } from 'react-select-async-paginate';
 import { GEO_API_URL, geoApiOptions } from '../../api';
+import { ISearchContext } from '../weather-widget/weather-widget.interface';
 import { SearchContext } from '../weather-widget/WeatherWidget';
 import './SearchBar.css';
-
-type SearchContextType = {
-  search: string;
-  setSearch: Function;
-};
+interface City {
+  name: string;
+  country: string;
+  countryCode: string;
+  region: string;
+  regionCode: string;
+  latitude: number;
+  longitude: number;
+  population: number;
+}
 
 function SearchBar() {
-  const [searchInput, setSearchInput] = useState('');
-  const searchContext: SearchContextType = useContext(SearchContext);
+  const [searchInput, setSearchInput] = useState<string>('');
+  const searchContext:ISearchContext = useContext(SearchContext);
+
   const handleOnChange = (searchInput: string) => {
     setSearchInput(searchInput);
     if (searchInput && searchContext) {
@@ -33,7 +40,7 @@ function SearchBar() {
       }
 
       return {
-        options: cities.data.map((city) => {
+        options: cities.data.map((city: City) => {
           return {
             value: { latitude: city.latitude, longitude: city.longitude },
             label: `${city.name}, ${city.countryCode}`,
@@ -44,7 +51,7 @@ function SearchBar() {
   };
 
   return (
-    <div data-testid='search-bar' className="search-bar">
+    <div data-testid="search-bar" className="search-bar">
       <AsyncPaginate
         placeholder="Search city"
         debounceTimeout={600}

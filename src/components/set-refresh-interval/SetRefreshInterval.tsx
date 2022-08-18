@@ -2,10 +2,6 @@ import { useContext } from 'react';
 import { RefreshIntervalContext } from '../weather-widget/WeatherWidget';
 import './SetRefreshInterval.css';
 
-type RefreshIntervalProps = {
-  value: number;
-};
-
 function SetRefreshInterval() {
   const refreshIntervalContext = useContext(RefreshIntervalContext);
   const handleOnChange = (value: string) => {
@@ -18,7 +14,7 @@ function SetRefreshInterval() {
         data-testid="set-interval"
         type="number"
         placeholder="Set interval"
-        onChange={(e) => handleOnChange(e.target.value)}
+        onChange={(element) => handleOnChange(element.target.value)}
       />
     </div>
   );

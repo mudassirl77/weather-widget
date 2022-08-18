@@ -1,12 +1,11 @@
-import React from 'react';
 import WeatherIcon from '../weather-icon/WeatherIcon';
 import WeatherLabel from '../weather-label/WeatherLabel';
 import './WeatherCondition.css';
 
-type WeatherConditionProps = {
+interface WeatherConditionProps {
   label: string;
   icon: string;
-};
+}
 
 function WeatherCondition({ label, icon }: WeatherConditionProps) {
   return (

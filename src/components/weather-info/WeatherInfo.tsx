@@ -1,9 +1,22 @@
 import './WeatherInfo.css';
 
-type WeatherInfoProps = {
+interface WeatherInfoProps {
   label: string;
-  value: string;
-};
+  value: string | number;
+}
+
+enum WeatherType {
+  Wind = 'wind',
+  Humidity = 'humidity',
+  Pressure = 'pressure',
+}
+
+enum Unit {
+  WindSpeed = 'km/h',
+  Humidity = '%',
+  Pressure = 'mbar',
+}
+
 const weatherInfoIcons: any = {
   sunrise: './icons/sunrise.svg',
   sunset: './icons/sunset.svg',
@@ -15,14 +28,14 @@ const weatherInfoIcons: any = {
 function WeatherInfo({ label, value }: WeatherInfoProps) {
   let valueWithUnit;
   switch (label) {
-    case 'wind':
-      valueWithUnit = `${value} km/h`;
+    case WeatherType.Wind:
+      valueWithUnit = `${value} ${Unit.WindSpeed}`;
       break;
-    case 'humidity':
-      valueWithUnit = `${value}%`;
+    case WeatherType.Humidity:
+      valueWithUnit = `${value}${Unit.Humidity}`;
       break;
-    case 'pressure':
-      valueWithUnit = `${value} mbar`;
+    case WeatherType.Pressure:
+      valueWithUnit = `${value} ${Unit.Pressure}`;
       break;
 
     default:

@@ -1,8 +1,8 @@
 import './WeatherIcon.css';
 
-type WeatherIconProp = {
+interface WeatherIconProp {
   icon: string;
-};
+}
 
 const WeatherIcons: any = {
   '01d': './icons/clear-day.svg',
@@ -23,8 +23,8 @@ const WeatherIcons: any = {
 
 function WeatherIcon({ icon }: WeatherIconProp) {
   return (
-    <div data-testid='weather-icon' className="weather-icon">
-      <img data-testid='icon' src={WeatherIcons[icon]}></img>
+    <div data-testid="weather-icon" className="weather-icon">
+      <img data-testid="icon" src={WeatherIcons[icon]}></img>
     </div>
   );
 }

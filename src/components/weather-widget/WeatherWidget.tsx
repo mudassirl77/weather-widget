@@ -6,42 +6,35 @@ import './WeatherWidget.css';
 import WeatherCondition from '../weather-condition/WeatherCondition';
 import WeatherInfoContainer from '../weather-info-container/WeatherInfoContainer';
 import { WEATHER_API_KEY, WEATHER_API_URL } from '../../api';
+import {
+  IRefreshIntervalContext,
+  ISearchContext,
+  IThemeContext,
+  SearchState,
+  WeatherDetails,
+} from './weather-widget.interface';
 
-type ThemeContextType = {
-  theme: string;
-  toggleTheme: () => void;
-};
-export const ThemeContext = createContext<ThemeContextType>(
-  {} as ThemeContextType
+export type DisplayMode = 'light' | 'dark';
+export const ThemeContext = createContext<IThemeContext>(
+  {} as IThemeContext
 );
-export const SearchContext = createContext({});
-export const RefreshIntervalContext = createContext({});
+export const SearchContext = createContext<ISearchContext>({} as ISearchContext);
+export const RefreshIntervalContext = createContext<IRefreshIntervalContext>({} as IRefreshIntervalContext);
 export const DEFAULT_REFRESH_INTERVAL = 30000;
 
 function WeatherWidget() {
-  const [theme, setTheme] = useState('light');
-
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
-  };
-
-  const [weatherInfo, setWeatherInfo] = useState(null);
-  const [search, setSearch] = useState<{
-    value: {
-      latitude: number;
-      longitude: number;
-    };
-    label: string;
-  }>();
-
+  const [theme, setTheme] = useState<DisplayMode>('light');
+  const [weatherInfo, setWeatherInfo] = useState<WeatherDetails | null>(null);
+  const [search, setSearch] = useState<SearchState>();
   const [refreshInterval, setRefreshInterval] = useState(
     DEFAULT_REFRESH_INTERVAL
   );
 
-  useEffect(() => {
-    fetchWeatherInfo();
-  }, [search]);
+  const toggleTheme = () => {
+    setTheme((curr: DisplayMode) => (curr === 'light' ? 'dark' : 'light'));
+  };
 
+  useEffect(() => fetchWeatherInfo(), [search]);
   useEffect(() => {
     const interval = setInterval(() => {
       fetchWeatherInfo();
@@ -76,10 +69,7 @@ function WeatherWidget() {
         </SearchContext.Provider>
         {weatherInfo && (
           <>
-            <Location
-              name={weatherInfo?.city}
-              country={weatherInfo?.sys?.country}
-            ></Location>
+            <Location name={weatherInfo?.city || ''}></Location>
             <Temperature value={weatherInfo?.main?.temp || 0}></Temperature>
             <WeatherCondition
               label={weatherInfo?.weather[0].description}
