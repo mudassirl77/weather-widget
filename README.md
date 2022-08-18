@@ -38,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Dark Mode][product-screenshot]][![Light Mode][product-screenshot1]]
 
 It is a React Component Library built for educational purposes. It displays current weather data for a selected city. Information like temperature, weather condition, humidity, wind and pressure.
 
@@ -174,7 +174,8 @@ Project Link: [https://github.com/mudassirl77/weather-widget](https://github.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [linkedin-url]: www.linkedin.com/in/mudassir-lallmahamood-309834171
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: public/icons/dark-mode.png
+[product-screenshot1]: public/icons/light-mode.png
 [Webpack]: https://badges.aleen42.com/src/webpack.svg
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [TypeScript]: https://badges.aleen42.com/src/typescript.svg
