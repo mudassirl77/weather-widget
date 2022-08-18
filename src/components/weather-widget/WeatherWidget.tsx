@@ -13,6 +13,8 @@ import {
   SearchState,
   WeatherDetails,
 } from './weather-widget.interface';
+import { ErrorBoundary } from '../error-handling/ErrorBoundary';
+import ErrorFallback from '../error-handling/ErrorFallback';
 
 export type DisplayMode = 'light' | 'dark';
 export const ThemeContext = createContext<IThemeContext>(
@@ -64,7 +66,9 @@ function WeatherWidget() {
           <RefreshIntervalContext.Provider
             value={{ refreshInterval, setRefreshInterval }}
           >
-            <Header></Header>
+            <ErrorBoundary fallBackComponent={ErrorFallback}>
+              <Header></Header>
+            </ErrorBoundary>
           </RefreshIntervalContext.Provider>
         </SearchContext.Provider>
         {weatherInfo && (
@@ -76,7 +80,7 @@ function WeatherWidget() {
               icon={weatherInfo?.weather[0].icon}
             ></WeatherCondition>
             <WeatherInfoContainer
-              weatherInfo={weatherInfo}
+              weatherDetails={weatherInfo}
             ></WeatherInfoContainer>
           </>
         )}
