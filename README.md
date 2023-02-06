@@ -154,7 +154,7 @@ To integrate in another React application locally, navigate to the root folder o
 <!-- CONTACT -->
 ## Contact
 
-Mudassir Lallmahamood - mudz1705@hotmail.com
+Mudassir Lallmahamood - mudassir.lallmahamood@gmail.com
 
 Project Link: [https://github.com/mudassirl77/weather-widget](https://github.com/mudassirl77/weather-widget)
 
@@ -173,7 +173,7 @@ Project Link: [https://github.com/mudassirl77/weather-widget](https://github.com
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[linkedin-url]: www.linkedin.com/in/mudassir-lallmahamood-309834171
+[linkedin-url]: www.linkedin.com/in/mudassir-lallmahamood
 [product-screenshot]: public/icons/dark-mode.png
 [product-screenshot1]: public/icons/light-mode.png
 [Webpack]: https://badges.aleen42.com/src/webpack.svg
